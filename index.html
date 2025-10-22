@@ -103,7 +103,7 @@ Ik voel wat fake is, dat het niet compleet is van mijlenver
   <script>
     const autocue = document.getElementById('autocue');
     let pos = 100;
-    let speed = 0.05; // pixels per frame (~120 bpm ≈ 500ms per regel)
+    let speed = 0.05; // Zeer trage scroll, geschikt voor rustig voorlezen
     let paused = false;
 
     function scrollStep() {
@@ -122,7 +122,6 @@ Ik voel wat fake is, dat het niet compleet is van mijlenver
       paused = false;
     }
 
-    // Autostart
     window.onload = () => {
       requestAnimationFrame(scrollStep);
     };
