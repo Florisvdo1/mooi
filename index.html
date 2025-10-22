@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Autocue: Als jij mooi bent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #f1f1f1;
+      font-family: sans-serif;
+      font-size: 2.5rem;
+      line-height: 1.6;
+      overflow: hidden;
+    }
+    #wrapper {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    #autocue {
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      padding: 2rem;
+      white-space: pre-line;
+    }
+    #controls {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 999;
+    }
+    button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="autocue">
+Als jij mooi bent, ben ik liever lelijk
+Kijk in je hart dan, ik zie wat er omheen zit
+Ik voel wat fake is, dat het niet compleet is van mijlenver
+Eh, wat is mooi? Mooi is dankbaar zijn met wat je pakt
+Mooi is hulp daar waar je het eigenlijk niet had verwacht
+Mooi zijn momenten met je mensen, daar waar huilen mag
+De allermooiste mensen die herken ik niet van buitenaf
+Mooi is je lach en mooi is elke dag gelukkig zijn
+Mooi is weggaan en dan blij zijn om weer terug te zijn
+Dure dingen op m'n lijf, maar we zijn naakt geboren
+De een met grote neus, de een met rare oren
+En wat is raar? We zijn apart, bro, check de fingerprint
+Lang, donker, geel, bruin, rood of lichtgetint
+Zit niet te wachten op je oordeel, gozer, stik erin
+Ik zweer het, liefst gedraag ik me als doodnormale citizen
+Als jij mooi bent, ben ik liever lelijk
+Kijk in je hart dan, ik zie wat er omheen zit
+Ik voel wat fake is, dat het niet compleet is van mijlenver
+Als jij mooi bent, ben ik liever lelijk
+Kijk in je hart dan, ik zie wat er omheen zit
+Ik voel wat fake is, dat het niet compleet is van mijlenver (yeah yeah yeah)
+Eh, kon ook gaan voor eigen succes
+Maar mooi is delen, mooi is wederzijdse respect
+Soms is het lelijk, maar dan lijkt het perfect
+Ze zeggen, "Kev, ik vind het mooi zo, hoe bescheiden je bent"
+Ik weet niet of ze op me changen als ik rij in een Benz
+Zeg ze, "Vergelijk me maar met niemand, want ik lijk niet op hen"
+Tijd in de tram, never nooit een cijfer geklemd
+Zag ik die dingen allemaal voor me, en nu zijn we gewend, yeah
+What's the mood? Niks moet, effe knagen dan
+Ben je niet moe van al dat roddelen en ratelen?
+'k Hoef niet te zoeken naar de mood om te verzamelen
+Denk terug aan toen en dan de uitverkochte avonden
+Als jij mooi bent, ben ik liever lelijk
+Kijk in je hart dan, ik zie wat er omheen zit
+Ik voel wat fake is, dat het niet compleet is van mijlenver
+Als jij mooi bent, ben ik liever lelijk
+Kijk in je hart dan, ik zie wat er omheen zit
+Ik voel wat fake is, dat het niet compleet is van mijlenver
+Als jij mooi bent, ben ik liever lelijk
+Kijk in je hart dan, ik zie wat er omheen zit
+Ik voel wat fake is, dat het niet compleet is van mijlenver
+Als jij mooi bent, ben ik liever lelijk
+Kijk in je hart dan, ik zie wat er omheen zit
+Ik voel wat fake is, dat het niet compleet is van mijlenver
+    </div>
+  </div>
+  <div id="controls">
+    <button onclick="pauseScroll()">⏸ Pauze</button>
+    <button onclick="resumeScroll()">▶ Hervatten</button>
+  </div>
+  <script>
+    const autocue = document.getElementById('autocue');
+    let pos = 100;
+    let speed = 0.5; // pixels per frame (~120 bpm ≈ 500ms per regel)
+    let paused = false;
+
+    function scrollStep() {
+      if (!paused) {
+        pos -= speed;
+        autocue.style.top = pos + '%';
+      }
+      requestAnimationFrame(scrollStep);
+    }
+
+    function pauseScroll() {
+      paused = true;
+    }
+
+    function resumeScroll() {
+      paused = false;
+    }
+
+    // Autostart
+    window.onload = () => {
+      requestAnimationFrame(scrollStep);
+    };
+  </script>
+</body>
+</html>
